@@ -1257,7 +1257,7 @@ class BoardShim(object):
 
         data_size = numpy.zeros(1).astype(numpy.int32)
 
-        res = BoardControllerDLL.get_instance().get_board_data_count(preset, data_size, self.board_id, self.input_json)
+        res = BoardControllerDLL.get_instance().get_board_data_count(preset, data_size, self.get_board_id(), self.input_json)
         if res != BrainFlowExitCodes.STATUS_OK.value:
             raise BrainFlowError('unable to obtain buffer size', res)
         return data_size[0]
